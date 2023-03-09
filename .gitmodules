@@ -1,0 +1,3 @@
+[submodule "storage-and-interfaces"]
+	path = storage-and-interfaces
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-storage-and-interfaces.git
