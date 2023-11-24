@@ -13,9 +13,6 @@
 [submodule "containerized-computation"]
 	path = containerized-computation
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-containerized-computation.git
-[submodule "synthetic-data"]
-	path = synthetic-data
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-synthetic-data.git
 [submodule "lsaai-mock"]
 	path = lsaai-mock
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
