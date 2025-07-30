@@ -10,7 +10,7 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 ### Central components
 
-- **Beacon Network - Data discovery**: A federated network of beacon nodes, which are responsible for the discovery of genomic variants and biomedical data across distributed resources.
+- [**Beacon Network - Data discovery**](https://beacon-network-demo.ega-archive.org/): A federated network of beacon nodes, which are responsible for the discovery of genomic variants and biomedical data across distributed resources.
 
 - [**LifeScience Authentication and Authorisation Infrastructure (LS-AAI) - Authentication and authorization**](https://services.aai.lifescience-ri.eu/): An authentication service implementing the OpenID Connect protocol and providing federated identity and access control.
 
@@ -19,7 +19,13 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 ### Local components
 
-- **Beacon - Data discovery**: An implementation of the Beacon protocol, defined by GA4GH, which provides an open standard for the discovery of genomic variants and biomedical data across single or distributed resources.
+- **Beacon - Data discovery**: An implementation of the Beacon protocol, defined by GA4GH, which provides an open standard for the discovery of genomic variants and biomedical data across single or distributed resources. There are two instances of this component:
+
+    - **Allele Frequency Beacon**: Provides aggregate data concerning the allele frequency of particular alleles without processing personal data.
+
+    - **Indivual Beacon**: Provides genomic and phenotypic individual data.
+
+- **FAIR Data Point (FDP) - Data discovery**: A metadata service that provides access to metadata following the FAIR principles.
 
 - **Funnel - Data processing**: An implementation of the GA4GH Task Execution Schemas (TES), aiming to standardize APIs used for task execution across multiple platforms.
 
@@ -29,7 +35,9 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 - **Sensitive Data Archive (SDA) - Data storage**: A stack of services for storage and controlled access to sensitive data.
 
-Please note that these components serve as an example of a feasible implementation and may be replaced with equivalent software pieces complying with the GA4GH standards and the expected use cases.
+- **Synthetic data**: A set of genomic and phenotypic synthetic data and metadata that can be used for testing and development purposes.
+
+Please note that these components serve as an example of a feasible implementation and may be replaced with equivalent software pieces complying with the GA4GH standards and the expected use cases. They should also be developed following best practices and security guidelines, such as data protection by design and by default.
 
 ## APIs
 In this other repo you will find the links to the API specifications, and/or associated standard specifications.
