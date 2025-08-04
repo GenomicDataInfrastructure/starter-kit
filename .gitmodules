@@ -19,3 +19,6 @@
 [submodule "beacon-v2"]
 	path = beacon-v2
 	url = git@github.com:EGA-archive/beacon2-ri-api.git
+[submodule "userportal"]
+	path = userportal
+	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
