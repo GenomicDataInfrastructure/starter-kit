@@ -47,10 +47,10 @@ https://github.com/GenomicDataInfrastructure/api-links
 
 The following repositories document how some nodes have deployed these components:
 
-- https://github.com/GenomicDataInfrastructure/starter-kit-se-deployment-notes
-- https://github.com/GenomicDataInfrastructure/starter-kit-es-deployment
-- https://github.com/GenomicDataInfrastructure/starter-kit-lu-deployment
-- https://github.com/GenomicDataInfrastructure/starter-kit-de-deployment-notes
+- [Sweden MS7 2023 Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-se-deployment-notes)
+- [Spain deployment notes](https://github.com/GenomicDataInfrastructure/starter-kit-es-deployment)
+- [Luxembourg MS7 2023 Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-lu-deployment)
+- [Germany Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-de-deployment-notes)
 
 
 ## Disclaimer
