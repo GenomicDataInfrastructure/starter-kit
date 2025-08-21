@@ -49,7 +49,7 @@ The following repositories document how some nodes have deployed these component
 
 - [Sweden MS7 2023 Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-se-deployment-notes)
 - [Spain deployment notes](https://github.com/GenomicDataInfrastructure/starter-kit-es-deployment)
-- [Luxembourg Ms7 2023 Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-lu-deployment)
+- [Luxembourg MS7 2023 Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-lu-deployment)
 - [Germany Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-de-deployment-notes)
 
 
