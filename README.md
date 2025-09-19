@@ -29,7 +29,7 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 - **Funnel - Data processing**: An implementation of the GA4GH Task Execution Schemas (TES), aiming to standardize APIs used for task execution across multiple platforms.
 
-- **htsget - Data reception**: An implementation of the htsget protocol, enabling secure, efficient, and reliable access to sequencing read and variation data.
+- **htsget - Data reception**: An implementation of the htsget protocol, enabling secure, efficient, and reliable retrieval of sequencing read and variation data.
 
 - **Resource Entitlement Management System (REMS) - Authorization**: A tool to manage access rights to resources such as research datasets, ensuring data security and privacy.
 
