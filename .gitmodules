@@ -22,3 +22,6 @@
 [submodule "userportal"]
 	path = userportal
 	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
+[submodule "fairdatapoint"]
+	path = fairdatapoint
+	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
