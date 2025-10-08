@@ -10,7 +10,7 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 ### Central components
 
-- [**Beacon Network - Data discovery**](https://beacon-network-demo.ega-archive.org/): A federated network of beacon nodes, which are responsible for the discovery of genomic variants and biomedical data across distributed resources.
+- **Beacon Network - Data discovery**: A federated network of beacon nodes, which are responsible for the discovery of genomic variants and biomedical data across distributed resources.
 
 - [**LifeScience Authentication and Authorisation Infrastructure (LS-AAI) - Authentication and authorization**](https://services.aai.lifescience-ri.eu/): An authentication service implementing the OpenID Connect protocol and providing federated identity and access control.
 
@@ -19,11 +19,11 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 ### Local components
 
-- **Beacon - Data discovery**: An implementation of the Beacon protocol, defined by GA4GH, which provides an open standard for the discovery of genomic variants and biomedical data across single or distributed resources. There are two instances of this component:
+- **Beacon - Data discovery**: An implementation of the GA4GH Beacon protocol, an open standard that enables the discovery of genomic variants and biomedical data across single or distributed resources. There are two instances of this component:
 
-    - **Allele Frequency Beacon**: Provides aggregate data concerning the allele frequency of particular alleles without processing personal data.
+    - **Aggregated Beacon**: Supports aggregated data without processing personal data.
 
-    - **Indivual Beacon**: Provides genomic and phenotypic individual data.
+    - **Subject Level Beacon**: Supports genomic and phenotypic individual-level data.
 
 - **FAIR Data Point (FDP) - Data discovery**: A metadata service that provides access to metadata following the FAIR principles.
 
