@@ -7,9 +7,6 @@
 [submodule "htsget"]
 	path = htsget
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
-[submodule "containerized-computation"]
-	path = containerized-computation
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-containerized-computation.git
 [submodule "lsaai-mock"]
 	path = lsaai-mock
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
@@ -25,3 +22,6 @@
 [submodule "fairdatapoint"]
 	path = fairdatapoint
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
+[submodule "funnel"]
+	path = funnel
+	url = https://github.com/CERIT-SC/funnel-gdi.git
