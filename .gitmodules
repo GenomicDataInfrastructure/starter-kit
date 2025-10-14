@@ -25,3 +25,6 @@
 [submodule "funnel"]
 	path = funnel
 	url = git@github.com:CERIT-SC/funnel-gdi.git
+[submodule "synthetic-data"]
+	path = synthetic-data
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-synthetic-data.git
