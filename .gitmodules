@@ -24,4 +24,4 @@
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
 [submodule "funnel"]
 	path = funnel
-	url = https://github.com/CERIT-SC/funnel-gdi.git
+	url = git@github.com:CERIT-SC/funnel-gdi.git
