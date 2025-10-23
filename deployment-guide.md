@@ -40,7 +40,8 @@ git submodule update
 ```
 
 > [TO CHECK] Is this needed?
-[Data from Beacon RI Tools v2](https://github.com/EGA-archive/beacon2-ri-tools-v2). Please, bear in mind that the datasetId for your records must match the id for the dataset in the /datasets entry type
+> 
+> [Data from Beacon RI Tools v2](https://github.com/EGA-archive/beacon2-ri-tools-v2). Please, bear in mind that the datasetId for your records must match the id for the dataset in the /datasets entry type
 
 Make sure the next list of ports are free of use in your system:
 
@@ -63,11 +64,13 @@ bash mongostart.sh
 If the operation is successful, you will have a beacon up and running at http://localhost:5050/api.
 
 > [TO CHECK] How is this done?
-If you want to use your own data, simply replace the contents of the data folder with your custom Beacon Friendly Format (BFF) files before running the script.
+>
+> If you want to use your own data, simply replace the contents of the data folder with your custom Beacon Friendly Format (BFF) files before running the script.
 
 > [TO CHECK] When is this step needed? Just after the `mongostart.sh`? It is not present in the production documentation
 but it is in the production beacon README.
-For the API to respond fast to the queries, you have to index your database. You can create the necessary indexes by running the next script:
+>
+> For the API to respond fast to the queries, you have to index your database. You can create the necessary indexes by running the next script:
 
 ```bash
 docker exec beaconprod python -m beacon.connections.mongo.reindex
