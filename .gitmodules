@@ -1,30 +1,40 @@
-[submodule "storage-and-interfaces"]
-	path = storage-and-interfaces
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-storage-and-interfaces.git
-[submodule "rems"]
-	path = rems
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-rems.git
-[submodule "htsget"]
-	path = htsget
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
-[submodule "containerized-computation"]
-	path = containerized-computation
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-containerized-computation.git
-[submodule "lsaai-mock"]
-	path = lsaai-mock
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
-[submodule "lsaai"]
-	path = lsaai
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai.git
 [submodule "beacon-v2"]
 	path = beacon-v2
 	url = git@github.com:EGA-archive/beacon2-pi-api.git
-[submodule "userportal"]
-	path = userportal
-	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
+	branch = STABLE_BRANCH_NAME
+[submodule "containerized-computation"]
+	path = containerized-computation
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-containerized-computation.git
+	branch = STABLE_BRANCH_NAME
 [submodule "fairdatapoint"]
 	path = fairdatapoint
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
+	branch = STABLE_BRANCH_NAME
+[submodule "htsget"]
+	path = htsget
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
+	branch = STABLE_BRANCH_NAME
+[submodule "lsaai"]
+	path = lsaai
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai.git
+	branch = STABLE_BRANCH_NAME
+[submodule "lsaai-mock"]
+	path = lsaai-mock
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
+	branch = STABLE_BRANCH_NAME
+[submodule "rems"]
+	path = rems
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-rems.git
+	branch = STABLE_BRANCH_NAME
+[submodule "storage-and-interfaces"]
+	path = storage-and-interfaces
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-storage-and-interfaces.git
+	branch = STABLE_BRANCH_NAME
 [submodule "synthetic-data"]
 	path = synthetic-data
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-synthetic-data.git
+	branch = STABLE_BRANCH_NAME
+[submodule "userportal"]
+	path = userportal
+	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
+	branch = STABLE_BRANCH_NAME
