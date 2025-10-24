@@ -20,6 +20,24 @@ https://docs.fairdatapoint.org/en/latest/deployment/local-deployment.html
 
 ### Beacon V2
 
+#### Requirements
+
+System and services:
+- OS: UNIX (Linux, Mac…)
+- Architecture: amd64/arm64
+- Keycloak: amd64 -> quay; arm64 -> sleighzy
+
+Hardware:
+- CPU: > 4
+- RAM: > 4 GB (generally, 20% of total data size as RAM, e.g. 40 GB -> 8 GB RAM)
+- Disk limit: > 32 GB
+
+Software:
+- Docker engine: version > 20.10.18
+
+
+#### Installation
+
 First, clone the beacon repository. You may do it in two ways:
 
 - Clone the original repository and checkout to the stable branch:
