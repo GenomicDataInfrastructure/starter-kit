@@ -23,7 +23,6 @@ https://docs.fairdatapoint.org/en/latest/deployment/local-deployment.html
 First, clone the beacon repository. You may do it in two ways:
 
 - Clone the original repository and checkout to the stable branch:
-> [TO CHECK] Set stable branch
 ```bash
 git clone https://github.com/EGA-archive/beacon2-pi-api.git
 cd beacon2-pi-api
