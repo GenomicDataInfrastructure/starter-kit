@@ -1,7 +1,7 @@
 [submodule "beacon-v2"]
 	path = beacon-v2
 	url = git@github.com:EGA-archive/beacon2-pi-api.git
-	branch = STABLE_BRANCH_NAME
+	branch = main
 [submodule "fairdatapoint"]
 	path = fairdatapoint
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
