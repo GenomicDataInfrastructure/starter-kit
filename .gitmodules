@@ -17,11 +17,11 @@
 [submodule "lsaai"]
 	path = lsaai
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai.git
-	branch = 1.0
+	branch = main
 [submodule "lsaai-mock"]
 	path = lsaai-mock
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
-	branch = 2.5.2
+	branch = main
 [submodule "rems"]
 	path = rems
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-rems.git
