@@ -38,38 +38,42 @@ git submodule init
 git submodule update
 ```
 
-> [TO CHECK] Is this needed?
-> 
-> [Data from Beacon RI Tools v2](https://github.com/EGA-archive/beacon2-ri-tools-v2). Please, bear in mind that the datasetId for your records must match the id for the dataset in the /datasets entry type
-
 Make sure the next list of ports are free of use in your system:
 
 - 27017 (MongoDB)
 - 5050 (Beacon)
-
-> [TO CHECK] These are not in https://beacon-documentation-demo.ega-archive.org/pi-automated-deployment but are in 
-the docker-compose.yml file and also mentioned in https://beacon-documentation-demo.ega-archive.org/pi-automated-deployment
 - 8081 (mongo-express) 
 - 8080 (Keycloak)
 - 9991 (Keycloak SSL)
 
 
-To quickly deploy your Beacon instance and load initial (test) data, run the following command from the root of your project:
+Light up the containers from the deploy folder:
 
 ```bash
-bash mongostart.sh
+docker compose up -d --build
 ```
 
-If the operation is successful, you will have a beacon up and running at http://localhost:5050/api.
+If the containers are built correctly:
 
-> [TO CHECK] How is this done?
->
-> If you want to use your own data, simply replace the contents of the data folder with your custom Beacon Friendly Format (BFF) files before running the script.
+- The Beacon API will run in http://localhost:5050/api.
+- The mongo-express UI will run in http://localhost:8081.
+- The Keycloak UI will run in http://localhost:8080/auth.
 
-> [TO CHECK] When is this step needed? Just after the `mongostart.sh`? It is not present in the production documentation
-but it is in the production beacon README.
->
-> For the API to respond fast to the queries, you have to index your database. You can create the necessary indexes by running the next script:
+
+#### Data injection
+
+If you already have BFF files, copy them into the [data folder for Mongo database](https://github.com/EGA-archive/beacon2-pi-api/tree/main/beacon/connections/mongo/data). Then execute this command to insert the files into the database:
+
+```bash
+for file in /data/*.json; do
+    collection=$(basename "$file" .json)
+    docker exec mongoprod mongoimport --jsonArray \
+        --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" \
+        --file "$file" --collection "$collection"
+done
+```
+
+For the API to respond fast to the queries, you have to index your database. You can create the necessary indexes by running the next script:
 
 ```bash
 docker exec beaconprod python -m beacon.connections.mongo.reindex
