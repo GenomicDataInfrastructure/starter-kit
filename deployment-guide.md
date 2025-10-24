@@ -36,7 +36,7 @@ Software:
 - Docker engine: version > 20.10.18
 
 
-#### Installation
+#### Aggregated Beacon instance
 
 First, clone the beacon repository. You may do it in two ways:
 
@@ -56,48 +56,69 @@ git submodule init
 git submodule update
 ```
 
+Edit the config file `ri-tools/conf/conf.py` by changing these variables:
+
+- `datasetId`: this variable has to match the “id” of the dataset you will relate the
+variants to.
+- `case_level_data`: change it to False.
+- `reference_genome`: select your genome of reference between NCBI36, GRCh37 and GRCh38.
+
+Edit the file `ri-tools/pipelines/default/templates/populations.json` and change the variable
+`numberOfPopulations` to the exact number of ancestries/populations you have allele frequencies for in your VCF and map
+how are the allele frequencies, zygosities and name of the population annotated in your VCF for each population.
+
 Make sure the next list of ports are free of use in your system:
 
 - 27017 (MongoDB)
 - 5050 (Beacon)
-- 8081 (mongo-express) 
-- 8080 (Keycloak)
-- 9991 (Keycloak SSL)
 
-
-Light up the containers from the deploy folder:
+Light up the needed containers from the deploy folder:
 
 ```bash
-docker compose up -d --build
+docker compose up -d --build beaconprod db beacon-ri-tools
 ```
 
-If the containers are built correctly:
-
-- The Beacon API will run in http://localhost:5050/api
-- The mongo-express UI will run in http://localhost:8081
-- The Keycloak UI will run in http://localhost:8080/auth
+If the containers are built correctly the Beacon API will run in http://localhost:5050/api
 
 
 #### Data injection
 
-If you already have BFF files, copy them into the [data folder for Mongo database](https://github.com/EGA-archive/beacon2-pi-api/tree/main/beacon/connections/mongo/data). Then execute this command to insert the files into the database:
+Copy your VCF files in .gz format inside the folder `ri-tools/files/vcf/files_to_read/`. Then, inject the variant data
+from the VCFs executing the next command (this step may take a few hours to finish, depending on your system resources):
 
 ```bash
-for file in /data/*.json; do
-    collection=$(basename "$file" .json)
-    docker exec mongoprod mongoimport --jsonArray \
-        --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" \
-        --file "$file" --collection "$collection"
-done
+docker exec ri-tools python genomicVariations_vcf.py
 ```
 
-For the API to respond fast to the queries, you have to index your database. You can create the necessary indexes by running the next script:
+Inject the phenotypic data replacing `path/to/datasets.json` with the correct path to your file:
+
+```bash
+docker cp path/to/datasets.json mongoprod:tmp/datasets.json
+docker exec mongoprod mongoimport --jsonArray --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" --file /tmp/datasets.json --collection datasets
+```
+
+Edit the file `beacon/permissions/datasets/datasets_permissions.yml` adding the dataset id and its permissions. For
+example:
+
+```yaml
+dataset_id:
+    public:
+        default_entry_types_granularity: record
+```
+
+For the API to respond fast to the queries, you have to index your database each time you inject new data::
 
 ```bash
 docker exec beaconprod python -m beacon.connections.mongo.reindex
 ```
 
-Note that you will need to run this script each time you inject new data.
+If your data collections (e.g., runs, biosamples, etc.) already contain structured metadata using ontology terms
+(like NCIT, UBERON, EFO...), you can extract filtering terms automatically. This will populate the `/filteringTerms` endpoint of your Beacon, enabling more advanced queries:
+
+```bash
+docker exec beaconprod python -m beacon.connections.mongo.extract_filtering_terms
+```
+
 
 #### Customization
 
