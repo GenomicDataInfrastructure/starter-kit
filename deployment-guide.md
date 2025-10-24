@@ -55,9 +55,9 @@ docker compose up -d --build
 
 If the containers are built correctly:
 
-- The Beacon API will run in http://localhost:5050/api.
-- The mongo-express UI will run in http://localhost:8081.
-- The Keycloak UI will run in http://localhost:8080/auth.
+- The Beacon API will run in http://localhost:5050/api
+- The mongo-express UI will run in http://localhost:8081
+- The Keycloak UI will run in http://localhost:8080/auth
 
 
 #### Data injection
@@ -82,14 +82,17 @@ docker exec beaconprod python -m beacon.connections.mongo.reindex
 Note that you will need to run this script each time you inject new data.
 
 #### Customization
+
 Make your Beacon your own by following these next steps:
-- Edit your instance’s [metadata](https://beacon-documentation-demo.ega-archive.org/configuration#editing-beacon-info). Update the /info endpoint with your organization's name, description, version, and contact details.
+
+- Edit your instance’s [metadata](https://beacon-documentation-demo.ega-archive.org/configuration#editing-beacon-info). Update the `/info` endpoint with your organization's name, description, version, and contact details.
 - Manage dataset [permissions](https://beacon-documentation-demo.ega-archive.org/configuration#managing-dataset-permissions). Control which datasets are public or require authentication.
 - Enable advanced [filtering](https://beacon-documentation-demo.ega-archive.org/filtering-terms#extract-terms).
-- Found more setting options in [Configuration](https://beacon-documentation-demo.ega-archive.org/configuration)
+- Found more setting options in [Configuration](https://beacon-documentation-demo.ega-archive.org/configuration).
 
 
 #### References
+
 - Guidelines: https://docs.google.com/document/d/1nytWC6QOvaLmoJd0OBOENc52gEXagXzI
 - Documenation: https://beacon-documentation-demo.ega-archive.org/
 
