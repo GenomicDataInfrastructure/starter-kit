@@ -81,7 +81,7 @@ docker compose up -d --build beaconprod db beacon-ri-tools
 If the containers are built correctly the Beacon API will run in http://localhost:5050/api
 
 
-#### Data injection
+##### Data injection
 
 Copy your VCF files in .gz format inside the folder `ri-tools/files/vcf/files_to_read/`. Then, inject the variant data
 from the VCFs executing the next command (this step may take a few hours to finish, depending on your system resources):
