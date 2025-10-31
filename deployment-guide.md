@@ -25,7 +25,6 @@ https://docs.fairdatapoint.org/en/latest/deployment/local-deployment.html
 System and services:
 - OS: UNIX (Linux, Mac…)
 - Architecture: amd64/arm64
-- Keycloak: amd64 -> quay; arm64 -> sleighzy
 
 Hardware:
 - CPU: > 4
@@ -130,10 +129,27 @@ Make your Beacon your own by following these next steps:
 - Found more setting options in [Configuration](https://beacon-documentation-demo.ega-archive.org/configuration).
 
 
+#### Connection to the GDI Beacon Network
+
+Follow this steps:
+
+- Validate the schema of your Beacon instance with [Beacon Verifier v2](https://beacon-verifier-demo.ega-archive.org/).
+- Add your instance to the test Beacon Network by contacting [Oriol Lopez-Doriga](#contact) to validate its configuration
+- Upon successful testing, the Beacon instance will be added to the GDI Beacon Network by the CRG Beacon team.
+
 #### References
 
-- Guidelines: https://docs.google.com/document/d/1nytWC6QOvaLmoJd0OBOENc52gEXagXzI
-- Documenation: https://beacon-documentation-demo.ega-archive.org/
+- [Guidelines](https://docs.google.com/document/d/1nytWC6QOvaLmoJd0OBOENc52gEXagXzI).
+- [Product Documentation](https://beacon-documentation-demo.ega-archive.org/).
+- [Protocol Documentation](https://docs.genomebeacons.org/).
+
+#### Contact
+
+Beacon team at the Centre for Genomic Regulation (CRG), Barcelona, Spain:
+
+- Jordi Rambla (team lead): jordi.rambla@crg.eu.
+- Liina Nagirnaja (Beacon manager): liina.nagirnaja@crg.eu.
+- Oriol Lopez-Doriga (Beacon v2 API developer): oriol.lopezdoriga@crg.eu. 
 
 ### LS AAI
 
