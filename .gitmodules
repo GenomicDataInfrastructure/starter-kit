@@ -5,7 +5,11 @@
 [submodule "fairdatapoint"]
 	path = fairdatapoint
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
-	branch = STABLE_BRANCH_NAME
+	branch = develop
+[submodule "fairdatapoint-client"]
+	path = fairdatapoint
+	url = git@github.com:FAIRDataTeam/FAIRDataPoint-client.git
+	branch = develop
 [submodule "funnel"]
 	path = funnel
 	url = git@github.com:CERIT-SC/funnel-gdi.git
