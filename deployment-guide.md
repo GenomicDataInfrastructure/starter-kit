@@ -52,6 +52,7 @@ git checkout main
 git clone https://github.com/GenomicDataInfrastructure/starter-kit.git
 cd starter-kit
 git submodule update --init beacon-v2/
+cd beacon-v2
 ```
 
 Edit the config file `ri-tools/conf/conf.py` by changing these variables:
