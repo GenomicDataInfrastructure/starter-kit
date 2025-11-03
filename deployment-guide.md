@@ -152,9 +152,9 @@ to complete the upload.
 
 #### References
 
-- [Product documentation](https://docs.fairdatapoint.org/en/latest/)
-- [Specification](https://specs.fairdatapoint.org/fdp-specs-v1.2.html)
-- [Integration with User Portal](https://genomicdatainfrastructure.github.io/gdi-userportal-docs/developer-guide/fdp/)
+- [Product documentation](https://docs.fairdatapoint.org/en/latest/).
+- [Specification](https://specs.fairdatapoint.org/fdp-specs-v1.2.html).
+- [Integration with User Portal](https://genomicdatainfrastructure.github.io/gdi-userportal-docs/developer-guide/fdp/).
 
 ### Beacon V2
 
