@@ -134,7 +134,7 @@ Make your Beacon your own by following these next steps:
 Follow this steps:
 
 - Validate the schema of your Beacon instance with [Beacon Verifier v2](https://beacon-verifier-demo.ega-archive.org/).
-- Add your instance to the test Beacon Network by contacting [Oriol Lopez-Doriga](#contact) to validate its configuration
+- Add your instance to the test Beacon Network by contacting [Oriol Lopez-Doriga](#contact) to validate its configuration.
 - Upon successful testing, the Beacon instance will be added to the GDI Beacon Network by the CRG Beacon team.
 
 #### References
