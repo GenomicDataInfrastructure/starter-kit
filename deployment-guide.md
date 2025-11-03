@@ -149,6 +149,7 @@ hatch run docs:jupyter lab
 Then, execute the [GDI-specific notebook](https://github.com/Health-RI/SeMPyRO/blob/main/docs/Usage_example_GDI.ipynb)
 to complete the upload.
 
+#### Contact
 
 #### References
 
