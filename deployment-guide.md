@@ -192,6 +192,10 @@ to complete the upload.
 
 #### Contact
 
+For questions or support, please contact:
+
+- **E-mail** – [servicedesk@health-ri.nl](mailto:servicedesk@health-ri.nl)
+
 #### References
 
 - [Product documentation](https://docs.fairdatapoint.org/en/latest/).
