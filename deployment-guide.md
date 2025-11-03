@@ -134,7 +134,7 @@ https://docs.fairdatapoint.org/en/latest/deployment/production-deployment.html.
 
 #### Connection to User Portal
 
-When you’ve completed these steps, please communicate the host URL of your FDP with LNDS team.
+Once you have deployed FDP, please communicate the host URL of your instance with LNDS team.
 
 
 #### Metadata onboarding
