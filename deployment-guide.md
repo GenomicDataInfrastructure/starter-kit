@@ -18,33 +18,54 @@ the central services.
 
 #### Installation
 
-First, create a docker compose file (e.g. `compose.yml`) as this:
+First, create a docker compose file (e.g. `compose.yml`) as this in an empty directory:
 
 ```yaml
  # compose.yml
 
- services:
+services:
+  fdp:
+    image: "fairdata/fairdatapoint:${FDP_VERSION:-1.18}"
+    restart: no
+    environment:
+      SERVER_PORT: 8080
+      INSTANCE_CLIENTURL: http://localhost
+      INSTANCE_PERSISTENTURL: http://localhost
+    depends_on:
+      mongo:
+        condition: service_healthy
+      graphdb:
+        condition: service_healthy
+    healthcheck:
+      test: wget --quiet --spider http://127.0.0.1:8080 || exit 1
+      start_interval: 3s
+      start_period: 30s
 
-     fdp:
-         image: fairdata/fairdatapoint:1.16
-         volumes:
-             - ./application.yml:/fdp/application.yml:ro
+  fdp-client:
+      image: "fairdata/fairdatapoint-client:${FDP_CLIENT_VERSION:-1.18}"
+      restart: no
+      ports:
+        - "127.0.0.1:80:80"
+      environment:
+        FDP_HOST: fdp:8080
+      depends_on:
+        fdp:
+          condition: service_healthy
+      healthcheck:
+        test: wget --quiet --spider http://127.0.0.1 || exit 1
+        start_interval: 3s
+        start_period: 30s
 
-     fdp-client:
-         image: fairdata/fairdatapoint-client:1.16
-         ports:
-             - 80:80
-         environment:
-             - FDP_HOST=fdp
+  mongo:
+    image: "mongo:${MONGO_VERSION:-8.0}"
+    restart: no
+    healthcheck:
+      test: |
+        [ $(mongosh --quiet --host localhost:27017 --eval "db.runCommand('ping').ok") = 1 ] || exit 1
+      start_interval: 3s
+      start_period: 30s
 
-     mongo:
-         image: mongo:4.0.12
-         ports:
-             - 27017:27017
-         volumes:
-             - ./mongo/data:/data/db
-
-graphdb:
+  graphdb:
     image: ontotext/graphdb:10.7.6
     ports:
         - 7200:7200
@@ -72,17 +93,13 @@ graphdb:
     healthcheck:
         # https://graphdb.ontotext.com/documentation/10.7/database-health-checks.html
         test: curl --fail-with-body http://localhost:7200/repositories/fdp/health || exit 1
-        interval: 5s
+
 ```
 
-Then, create a file `application.yml` as this:
+Then, create a file `application.yml` next to it as this:
 
 ```yaml
 # application.yml
-
-instance:
-    clientUrl: http://localhost:80 # 80 is the default exposed port. Change it in compose.yml if you change it here.
-
 repository:
     type: 4
     graphDb:
@@ -122,7 +139,7 @@ You can now run it using:
 docker compose up -d
 ```
 
-After some time, you should be able to access FDP at http://localhost:80.
+After some time, you should be able to access FDP at http://localhost:8080.
 
 There are two default user accounts, that you should change once your FDP becomes publicly available:
 
@@ -139,6 +156,30 @@ Once you have deployed FDP, please communicate the host URL of your instance wit
 
 #### Metadata onboarding
 
+To add GDI-specific SHACL validation, follow these steps to register the SHACL shapes: 
+
+##### Step 1: Download SHACL Shapes
+   - Access the GDI-specific SHACL shapes from this [GDI metadata repository](https://github.com/GenomicDataInfrastructure/gdi-metadata/tree/main/Formulasation(shacl)/core/PiecesShape).
+   - Download each SHACL shape file (e.g., `Resource.ttl` and others).
+
+##### Step 2: Upload SHACL Shapes to FDP
+
+1. **Login** to FDP using an admin account.
+2. Navigate to **Metadata Schemas** (located in the dropdown under your username).
+3. For each SHACL shape file you downloaded:
+   - Open the **editor** and paste the contents of `Resource.ttl` (or other shapes).
+   - **Add a description** to document the purpose or release information.
+   - Configure the following:
+      - ✅ **For `Resource.ttl`:** check **Abstract** (this shape is a base class).  
+      - 🚫 **For all other shapes:** leave **Abstract** unchecked.
+   - Click **Save and Release** to finalize the shape.
+   - Provide a meaningful description and **version number** for the release.
+   - Check the **public** checkbox to make the shape accessible.
+   - Click **Release** to complete the upload.
+
+Repeat these steps for each SHACL shape file.
+
+##### Large datasets 
 To onboard large datasets more efficiently, you can use a Jupyter notebook to automate this process.
 Clone the [Sempyro repository](https://github.com/Health-RI/SeMPyRO) and run the notebook using:
 
