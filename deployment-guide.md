@@ -27,9 +27,9 @@ System and services:
 - Architecture: amd64/arm64
 
 Hardware:
-- CPU: > 4
-- RAM: > 4 GB (generally, 20% of total data size as RAM, e.g. 40 GB -> 8 GB RAM)
-- Disk limit: > 32 GB
+- CPU: >= 4
+- RAM: >= 4 GB (generally, 20% of total data size as RAM, e.g. 40 GB -> 8 GB RAM)
+- Disk limit: >= 32 GB
 
 Software:
 - Docker engine: version > 20.10.18
@@ -89,11 +89,11 @@ from the VCFs executing the next command (this step may take a few hours to fini
 docker exec ri-tools python genomicVariations_vcf.py
 ```
 
-Inject the phenotypic data replacing `path/to/datasets.json` with the correct path to your file:
+Inject the phenotypic data replacing `datasets.json` with the correct path to your file:
 
 ```bash
-docker cp path/to/datasets.json mongoprod:tmp/datasets.json
-docker exec mongoprod mongoimport --jsonArray --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" --file /tmp/datasets.json --collection datasets
+gzip datasets.json
+gunzip --stdout datasets.json.gz | docker exec -i mongoprod sh -c 'mongoimport --jsonArray --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" --collection datasets'
 ```
 
 Edit the file `beacon/permissions/datasets/datasets_permissions.yml` adding the dataset id and its permissions. For
