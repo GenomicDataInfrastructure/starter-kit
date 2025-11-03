@@ -90,7 +90,7 @@ repository:
         repository: fdp
 ```
 
-And another file `repo.json` containing the configuration for the GraphDB repository:
+And another file named `repo.json` containing the configuration for the GraphDB repository:
 
 ```json
 {
@@ -124,10 +124,30 @@ docker compose up -d
 
 After some time, you should be able to access FDP at http://localhost:80.
 
-There are two default user accounts:
+There are two default user accounts, that you should change once your FDP becomes publicly available:
 
 - albert.einstein@example.com with password `password` and role `admin` 
 - nikola.tesla@example.com with password `password` and role `user`
+
+Here you can find a way to set up a public instance of FDP using a reverse proxy:
+https://docs.fairdatapoint.org/en/latest/deployment/production-deployment.html.
+
+#### Connection to User Portal
+
+When you’ve completed these steps, please communicate the host URL of your FDP with LNDS team.
+
+
+#### Metadata onboarding
+
+To onboard large datasets more efficiently, you can use a Jupyter notebook to automate this process.
+Clone the [Sempyro repository](https://github.com/Health-RI/SeMPyRO) and run the notebook using:
+
+```bash
+hatch run docs:jupyter lab
+```
+
+Then, execute the [GDI-specific notebook](https://github.com/Health-RI/SeMPyRO/blob/main/docs/Usage_example_GDI.ipynb)
+to complete the upload.
 
 
 #### References
