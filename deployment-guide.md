@@ -27,6 +27,8 @@ services:
   fdp:
     image: "fairdata/fairdatapoint:${FDP_VERSION:-1.18}"
     restart: no
+    ports: 
+      - "8080:8080"
     environment:
       SERVER_PORT: 8080
       INSTANCE_CLIENTURL: http://localhost
@@ -45,7 +47,7 @@ services:
       image: "fairdata/fairdatapoint-client:${FDP_CLIENT_VERSION:-1.18}"
       restart: no
       ports:
-        - "127.0.0.1:80:80"
+        - "80:80"
       environment:
         FDP_HOST: fdp:8080
       depends_on:
@@ -139,7 +141,7 @@ You can now run it using:
 docker compose up -d
 ```
 
-After some time, you should be able to access FDP at http://localhost:8080.
+After some time, you should be able to access FDP at http://localhost.
 
 There are two default user accounts, that you should change once your FDP becomes publicly available:
 
