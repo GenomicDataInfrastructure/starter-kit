@@ -27,8 +27,6 @@ services:
   fdp:
     image: "fairdata/fairdatapoint:${FDP_VERSION:-1.18}"
     restart: no
-    ports: 
-      - "8080:8080"
     environment:
       SERVER_PORT: 8080
       INSTANCE_CLIENTURL: http://localhost
@@ -69,8 +67,6 @@ services:
 
   graphdb:
     image: ontotext/graphdb:10.7.6
-    ports:
-        - 7200:7200
     volumes:
         - ./graphdb:/opt/graphdb/home
         - ./repo.json:/tmp/repo.json:ro
