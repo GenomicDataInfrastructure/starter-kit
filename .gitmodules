@@ -2,14 +2,6 @@
 	path = beacon-v2
 	url = git@github.com:EGA-archive/beacon2-pi-api.git
 	branch = main
-[submodule "fairdatapoint"]
-	path = fairdatapoint
-	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
-	branch = develop
-[submodule "fairdatapoint-client"]
-	path = fairdatapoint
-	url = git@github.com:FAIRDataTeam/FAIRDataPoint-client.git
-	branch = develop
 [submodule "funnel"]
 	path = funnel
 	url = git@github.com:CERIT-SC/funnel-gdi.git
@@ -42,3 +34,11 @@
 	path = userportal
 	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
 	branch = STABLE_BRANCH_NAME
+[submodule "fairdatapoint/server"]
+	path = fairdatapoint/server
+	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
+	branch = develop
+[submodule "fairdatapoint/client"]
+	path = fairdatapoint/client
+	url = git@github.com:FAIRDataTeam/FAIRDataPoint-client.git
+	branch = develop
