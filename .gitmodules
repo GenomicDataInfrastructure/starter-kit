@@ -25,7 +25,7 @@
 [submodule "storage-and-interfaces"]
 	path = storage-and-interfaces
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-storage-and-interfaces.git
-	branch = STABLE_BRANCH_NAME
+	branch = main
 [submodule "synthetic-data"]
 	path = synthetic-data
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-synthetic-data.git
