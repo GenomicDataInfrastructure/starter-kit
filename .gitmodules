@@ -5,7 +5,7 @@
 [submodule "funnel"]
 	path = funnel
 	url = git@github.com:CERIT-SC/funnel-gdi.git
-	branch = STABLE_BRANCH_NAME
+	branch = master-gdi
 [submodule "htsget"]
 	path = htsget
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
