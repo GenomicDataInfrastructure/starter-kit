@@ -1,4 +1,4 @@
-# GDI Starter Kit deployment guide [DRAFT]
+# GDI Starter Kit deployment guide [WIP]
 
 This guide provides a set of instructions on how to deploy the GDI Starter Kit
 in a node. It also includes the necessary steps to upload data and connect to
