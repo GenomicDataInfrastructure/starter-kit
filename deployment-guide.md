@@ -335,6 +335,14 @@ Beacon team at the Centre for Genomic Regulation (CRG), Barcelona, Spain:
 
 ### LS AAI
 
+For connecting your services to [LS AAI](https://lifescience-ri.eu/ls-login.html) read the [Documentation for connecting your service to LS AAI](https://lifescience-ri.eu/ls-login/documentation/service-provider-documentation/service-provider-documentation.html), mainly the [Instructions for relying parties](https://docs.google.com/document/d/17pNXM_psYOP5rWF302ObAJACsfYnEWhjvxAHzcjvfIE/edit?usp=sharing).
+
+The main user interface to LS AAI for users is [LS AAI User Profile](https://profile.aai.lifescience-ri.eu/)
+
+The main user interface for Service Provider administrators is [Service Provider Registry](https://services.aai.lifescience-ri.eu/spreg/)
+
+The main user interface for group administrators is [LS Identity and Access Management](https://perun.aai.lifescience-ri.eu/)
+
 ### REMS
 
 ### S&I
