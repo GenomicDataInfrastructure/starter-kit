@@ -9,7 +9,7 @@
 [submodule "htsget"]
 	path = htsget
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
-	branch = STABLE_BRANCH_NAME
+	branch = main
 [submodule "lsaai"]
 	path = lsaai
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai.git
@@ -29,11 +29,11 @@
 [submodule "synthetic-data"]
 	path = synthetic-data
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-synthetic-data.git
-	branch = STABLE_BRANCH_NAME
+	branch = main
 [submodule "userportal"]
 	path = userportal
 	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
-	branch = STABLE_BRANCH_NAME
+	branch = main
 [submodule "fairdatapoint/server"]
 	path = fairdatapoint/server
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
