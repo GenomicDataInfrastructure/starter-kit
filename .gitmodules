@@ -1,30 +1,44 @@
-[submodule "storage-and-interfaces"]
-	path = storage-and-interfaces
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-storage-and-interfaces.git
-[submodule "rems"]
-	path = rems
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-rems.git
-[submodule "htsget"]
-	path = htsget
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
-[submodule "lsaai-mock"]
-	path = lsaai-mock
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
-[submodule "lsaai"]
-	path = lsaai
-	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai.git
 [submodule "beacon-v2"]
 	path = beacon-v2
 	url = git@github.com:EGA-archive/beacon2-pi-api.git
-[submodule "userportal"]
-	path = userportal
-	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
-[submodule "fairdatapoint"]
-	path = fairdatapoint
-	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
+	branch = main
 [submodule "funnel"]
 	path = funnel
 	url = git@github.com:CERIT-SC/funnel-gdi.git
+	branch = master-gdi
+[submodule "htsget"]
+	path = htsget
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-htsget.git
+	branch = main
+[submodule "lsaai"]
+	path = lsaai
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai.git
+	branch = main
+[submodule "lsaai-mock"]
+	path = lsaai-mock
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-lsaai-mock.git
+	branch = main
+[submodule "rems"]
+	path = rems
+	url = git@github.com:CSCfi/rems.git
+	branch = master
+[submodule "storage-and-interfaces"]
+	path = storage-and-interfaces
+	url = git@github.com:GenomicDataInfrastructure/starter-kit-storage-and-interfaces.git
+	branch = main
 [submodule "synthetic-data"]
 	path = synthetic-data
 	url = git@github.com:GenomicDataInfrastructure/starter-kit-synthetic-data.git
+	branch = main
+[submodule "userportal"]
+	path = userportal
+	url = git@github.com:GenomicDataInfrastructure/gdi-userportal-deployment.git
+	branch = main
+[submodule "fairdatapoint/server"]
+	path = fairdatapoint/server
+	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
+	branch = develop
+[submodule "fairdatapoint/client"]
+	path = fairdatapoint/client
+	url = git@github.com:FAIRDataTeam/FAIRDataPoint-client.git
+	branch = develop
