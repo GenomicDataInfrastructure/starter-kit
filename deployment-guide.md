@@ -4,15 +4,12 @@ This guide provides a set of instructions on how to deploy the GDI Starter Kit
 in a node. It also includes the necessary steps to upload data and connect to
 the central services.
 
+## Local services deployment
 
-## Prerequisites
+### Prerequisites
 
 - [Docker](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-
-
-
-## Deployment
 
 ### FAIR Data Point
 
@@ -331,23 +328,59 @@ Beacon team at the Centre for Genomic Regulation (CRG), Barcelona, Spain:
 
 - Jordi Rambla (team lead): jordi.rambla@crg.eu.
 - Liina Nagirnaja (Beacon manager): liina.nagirnaja@crg.eu.
-- Oriol Lopez-Doriga (Beacon v2 API developer): oriol.lopezdoriga@crg.eu. 
+- Oriol Lopez-Doriga (Beacon v2 API developer): oriol.lopezdoriga@crg.eu.
 
-### LS AAI
-
-For connecting your services to [LS AAI](https://lifescience-ri.eu/ls-login.html) read the [Documentation for connecting your service to LS AAI](https://lifescience-ri.eu/ls-login/documentation/service-provider-documentation/service-provider-documentation.html), mainly the [Instructions for relying parties](https://docs.google.com/document/d/17pNXM_psYOP5rWF302ObAJACsfYnEWhjvxAHzcjvfIE/edit?usp=sharing).
-
-The main user interface to LS AAI for users is [LS AAI User Profile](https://profile.aai.lifescience-ri.eu/)
-
-The main user interface for Service Provider administrators is [Service Provider Registry](https://services.aai.lifescience-ri.eu/spreg/)
-
-The main user interface for group administrators is [LS Identity and Access Management](https://perun.aai.lifescience-ri.eu/)
-
-### REMS
 
 ### S&I
 
 ### Compute
 
 ### htsget
+
+
+## Central services
+
+### User Portal
+There is available [documentation](https://genomicdatainfrastructure.github.io/gdi-userportal-docs/) on what the service does on how it is deployed.
+
+A test environment instance is deployed at https://portal.testing.gdi.lu/.
+
+#### Contact
+LNDS team:
+- Bruno Pacheco: bruno.pacheco@lnds.lu
+
+### REMS
+REMS is integrated into the User Portal. Documentation is available at https://genomicdatainfrastructure.github.io/gdi-userportal-docs/introduction/third-party-components/rems/.
+
+A test environment instance is deployed at https://daam.portal.testing.gdi.lu/.
+
+
+### Dataset Catalogue (CKAN)
+CKAN is integrated into the User Portal. Documentation is available at https://genomicdatainfrastructure.github.io/gdi-userportal-docs/developer-guide/ckan/.
+
+A test environment instance is deployed at https://catalogue.portal.testing.gdi.lu/. 
+
+### LS AAI
+
+For connecting your services to [LS AAI](https://lifescience-ri.eu/ls-login.html) read the [Documentation for connecting your service to LS AAI](https://lifescience-ri.eu/ls-login/documentation/service-provider-documentation/service-provider-documentation.html), mainly the [Instructions for relying parties](https://docs.google.com/document/d/17pNXM_psYOP5rWF302ObAJACsfYnEWhjvxAHzcjvfIE/edit?usp=sharing).
+
+The main user interface to LS AAI for users is [LS AAI User Profile](https://profile.aai.lifescience-ri.eu/).
+
+The main user interface for Service Provider administrators is [Service Provider Registry](https://services.aai.lifescience-ri.eu/spreg/).
+
+The main user interface for group administrators is [LS Identity and Access Management](https://perun.aai.lifescience-ri.eu/).
+
+#### Contact
+LS AAI team:
+- Martin Kuba: makub@ics.muni.cz
+
+### Beacon Network
+#### Aggregated Beacon network
+A test environment API instance is deployed at https://af-gdi-beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0.
+
+#### Subject-level Beacon Network
+A test environment API instance is deployed at https://gdi-beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0.
+
+#### Contact
+[Beacon team](#contact-1)
 
