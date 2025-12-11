@@ -1,18 +1,15 @@
-# GDI Starter Kit deployment guide [DRAFT]
+# GDI Starter Kit deployment guide [WIP]
 
 This guide provides a set of instructions on how to deploy the GDI Starter Kit
 in a node. It also includes the necessary steps to upload data and connect to
 the central services.
 
+## Local services deployment
 
-## Prerequisites
+### Prerequisites
 
 - [Docker](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-
-
-
-## Deployment
 
 ### FAIR Data Point
 
@@ -190,13 +187,188 @@ For questions or support, please contact:
 
 ### Beacon V2
 
-### LS AAI
+#### Requirements
 
-### REMS
+System and services:
+- OS: UNIX (Linux, Mac…)
+- Architecture: amd64/arm64
+
+Hardware:
+- CPU: >= 4
+- RAM: >= 4 GB (generally, 20% of total data size as RAM, e.g. 40 GB -> 8 GB RAM)
+- Disk limit: >= 32 GB
+
+Software:
+- Docker engine: version > 20.10.18
+
+
+#### Aggregated Beacon instance
+
+First, clone the beacon repository. You may do it in two ways:
+
+- Clone the original repository and checkout to the stable branch:
+```bash
+git clone https://github.com/EGA-archive/beacon2-pi-api.git
+cd beacon2-pi-api
+git checkout main
+```
+
+- Clone the starter-kit repository and load the beacon2-pi-api submodule:
+
+```bash
+git clone https://github.com/GenomicDataInfrastructure/starter-kit.git
+cd starter-kit
+git submodule update --init beacon-v2/
+cd beacon-v2
+```
+
+Edit the config file `ri-tools/conf/conf.py` by changing these variables:
+
+- `datasetId`: this variable has to match the “id” of the dataset you will relate the
+variants to.
+- `case_level_data`: change it to False.
+- `reference_genome`: select your genome of reference between NCBI36, GRCh37 and GRCh38.
+
+Edit the file `ri-tools/pipelines/default/templates/populations.json` and change the variable
+`numberOfPopulations` to the exact number of ancestries/populations you have allele frequencies for in your VCF and map
+how are the allele frequencies, zygosities and name of the population annotated in your VCF for each population.
+
+Make sure the next list of ports are free of use in your system:
+
+- 27017 (MongoDB)
+- 5050 (Beacon)
+
+Light up the needed containers from the deploy folder:
+
+```bash
+docker compose up -d --build beaconprod db beacon-ri-tools
+```
+
+If the containers are built correctly the Beacon API will run in http://localhost:5050/api
+
+
+##### Data injection
+
+Copy your VCF files in .gz format inside the folder `ri-tools/files/vcf/files_to_read/`. Then, inject the variant data
+from the VCFs executing the next command (this step may take a few hours to finish, depending on your system resources):
+
+```bash
+docker exec ri-tools python genomicVariations_vcf.py
+```
+
+Inject the phenotypic data replacing `datasets.json` with the correct path to your file:
+
+```bash
+gzip datasets.json
+gunzip --stdout datasets.json.gz | docker exec -i mongoprod sh -c 'mongoimport --jsonArray --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" --collection datasets'
+```
+
+Edit the file `beacon/permissions/datasets/datasets_permissions.yml` adding the dataset id and its permissions. For
+example:
+
+```yaml
+dataset_id:
+    public:
+        default_entry_types_granularity: record
+```
+
+For the API to respond fast to the queries, you have to index your database each time you inject new data::
+
+```bash
+docker exec beaconprod python -m beacon.connections.mongo.reindex
+```
+
+If your data collections (e.g., runs, biosamples, etc.) already contain structured metadata using ontology terms
+(like NCIT, UBERON, EFO...), you can extract filtering terms automatically. This will populate the `/filteringTerms` endpoint of your Beacon, enabling more advanced queries:
+
+```bash
+docker exec beaconprod python -m beacon.connections.mongo.extract_filtering_terms
+```
+
+
+#### Customization
+
+Make your Beacon your own by following these next steps:
+
+- Edit your instance’s [metadata](https://beacon-documentation-demo.ega-archive.org/configuration#editing-beacon-info). Update the `/info` endpoint with your organization's name, description, version, and contact details.
+- Manage dataset [permissions](https://beacon-documentation-demo.ega-archive.org/configuration#managing-dataset-permissions). Control which datasets are public or require authentication.
+- Enable advanced [filtering](https://beacon-documentation-demo.ega-archive.org/filtering-terms#extract-terms).
+- Found more setting options in [Configuration](https://beacon-documentation-demo.ega-archive.org/configuration).
+
+
+#### Connection to the GDI Beacon Network
+
+Follow this steps:
+
+- Validate the schema of your Beacon instance with [Beacon Verifier v2](https://beacon-verifier-demo.ega-archive.org/).
+- Add your instance to the test Beacon Network by contacting [Oriol Lopez-Doriga](#contact) to validate its configuration.
+- Upon successful testing, the Beacon instance will be added to the GDI Beacon Network by the CRG Beacon team.
+
+#### References
+
+- [Guidelines](https://docs.google.com/document/d/1nytWC6QOvaLmoJd0OBOENc52gEXagXzI).
+- [Product Documentation](https://beacon-documentation-demo.ega-archive.org/).
+- [Protocol Documentation](https://docs.genomebeacons.org/).
+
+#### Contact
+
+Beacon team at the Centre for Genomic Regulation (CRG), Barcelona, Spain:
+
+- Jordi Rambla (team lead): jordi.rambla@crg.eu.
+- Liina Nagirnaja (Beacon manager): liina.nagirnaja@crg.eu.
+- Oriol Lopez-Doriga (Beacon v2 API developer): oriol.lopezdoriga@crg.eu.
+
 
 ### S&I
 
 ### Compute
 
 ### htsget
+
+
+## Central services
+
+### User Portal
+There is available [documentation](https://genomicdatainfrastructure.github.io/gdi-userportal-docs/) on what the service does on how it is deployed.
+
+A test environment instance is deployed at https://portal.testing.gdi.lu/.
+
+#### Contact
+LNDS team:
+- Bruno Pacheco: bruno.pacheco@lnds.lu
+
+### REMS
+REMS is integrated into the User Portal. Documentation is available at https://genomicdatainfrastructure.github.io/gdi-userportal-docs/introduction/third-party-components/rems/.
+
+A test environment instance is deployed at https://daam.portal.testing.gdi.lu/.
+
+
+### Dataset Catalogue (CKAN)
+CKAN is integrated into the User Portal. Documentation is available at https://genomicdatainfrastructure.github.io/gdi-userportal-docs/developer-guide/ckan/.
+
+A test environment instance is deployed at https://catalogue.portal.testing.gdi.lu/. 
+
+### LS AAI
+
+For connecting your services to [LS AAI](https://lifescience-ri.eu/ls-login.html) read the [Documentation for connecting your service to LS AAI](https://lifescience-ri.eu/ls-login/documentation/service-provider-documentation/service-provider-documentation.html), mainly the [Instructions for relying parties](https://docs.google.com/document/d/17pNXM_psYOP5rWF302ObAJACsfYnEWhjvxAHzcjvfIE/edit?usp=sharing).
+
+The main user interface to LS AAI for users is [LS AAI User Profile](https://profile.aai.lifescience-ri.eu/).
+
+The main user interface for Service Provider administrators is [Service Provider Registry](https://services.aai.lifescience-ri.eu/spreg/).
+
+The main user interface for group administrators is [LS Identity and Access Management](https://perun.aai.lifescience-ri.eu/).
+
+#### Contact
+LS AAI team:
+- Martin Kuba: makub@ics.muni.cz
+
+### Beacon Network
+#### Aggregated Beacon network
+A test environment API instance is deployed at https://af-gdi-beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0.
+
+#### Subject-level Beacon Network
+A test environment API instance is deployed at https://gdi-beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0.
+
+#### Contact
+[Beacon team](#contact-1)
 
