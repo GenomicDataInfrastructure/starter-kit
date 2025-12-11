@@ -381,6 +381,9 @@ A test environment API instance is deployed at https://af-gdi-beacon-network-bac
 #### Subject-level Beacon Network
 A test environment API instance is deployed at https://gdi-beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0.
 
+#### Connection with local Beacon
+Follow the steps at the [local Beacon section](#connection-to-the-gdi-beacon-network).
+
 #### Contact
 [Beacon team](#contact-1)
 
