@@ -305,7 +305,9 @@ Make your Beacon your own by following these next steps:
 - Edit your instance’s [metadata](https://beacon-documentation-demo.ega-archive.org/configuration#editing-beacon-info). Update the `/info` endpoint with your organization's name, description, version, and contact details.
 - Manage dataset [permissions](https://beacon-documentation-demo.ega-archive.org/configuration#managing-dataset-permissions). Control which datasets are public or require authentication.
 - Enable advanced [filtering](https://beacon-documentation-demo.ega-archive.org/filtering-terms#extract-terms).
-- Found more setting options in [Configuration](https://beacon-documentation-demo.ega-archive.org/configuration).
+- Find more setting options in [Configuration](https://beacon-documentation-demo.ega-archive.org/configuration).
+
+In this [section of the guidelines](https://docs.google.com/document/d/1nytWC6QOvaLmoJd0OBOENc52gEXagXzI/edit#heading=h.nz1wgb9wwpet) you will find more details and examples.
 
 
 #### Connection to the GDI Beacon Network
