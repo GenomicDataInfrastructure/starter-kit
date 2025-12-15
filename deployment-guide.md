@@ -343,9 +343,9 @@ Beacon team at the Centre for Genomic Regulation (CRG), Barcelona, Spain:
 ### User Portal
 There is available [documentation](https://genomicdatainfrastructure.github.io/gdi-userportal-docs/) on what the service does on how it is deployed.
 
-A test environment instance is deployed at https://portal.dev.gdi.lu/.
+A test environment instance is deployed at https://portal.testing.gdi.lu/.
 
-A staging environment instance is deployed at https://portal.testing.gdi.lu/.
+A staging environment instance is deployed at https://portal.dev.gdi.lu/.
 
 #### Contact
 LNDS team:
@@ -356,11 +356,15 @@ REMS is integrated into the User Portal. Documentation is available at https://g
 
 A test environment instance is deployed at https://daam.portal.testing.gdi.lu/.
 
+A staging environment instance is deployed at https://daam.portal.dev.gdi.lu/.
+
 
 ### Dataset Catalogue (CKAN)
 CKAN is integrated into the User Portal. Documentation is available at https://genomicdatainfrastructure.github.io/gdi-userportal-docs/developer-guide/ckan/.
 
-A test environment instance is deployed at https://catalogue.portal.testing.gdi.lu/. 
+A test environment instance is deployed at https://catalogue.portal.testing.gdi.lu/.
+
+A staging environment instance is deployed at https://catalogue.portal.dev.gdi.lu/. 
 
 ### LS AAI
 
