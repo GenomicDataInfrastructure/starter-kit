@@ -37,8 +37,8 @@
 [submodule "fairdatapoint/server"]
 	path = fairdatapoint/server
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint.git
-	branch = 1.18.x
+	branch = support/1.18.x
 [submodule "fairdatapoint/client"]
 	path = fairdatapoint/client
 	url = git@github.com:FAIRDataTeam/FAIRDataPoint-client.git
-	branch = 1.18.x
+	branch = support/1.18.x
