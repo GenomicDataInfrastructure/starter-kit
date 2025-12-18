@@ -1,9 +1,6 @@
 name: Update products
 
 on:
-  schedule:
-    - cron:  '7 7 * * 1' # Monday at 07:07 UTC
-    - cron:  '7 7 * * 4' # Thursday at 07:07 UTC
   workflow_dispatch:
 
 jobs:
