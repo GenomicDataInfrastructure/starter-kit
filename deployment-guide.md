@@ -196,10 +196,11 @@ System and services:
 Hardware:
 - CPU: >= 4
 - RAM: >= 4 GB (generally, 20% of total data size as RAM, e.g. 40 GB -> 8 GB RAM)
-- Disk limit: >= 32 GB
+- Disk space: >= 32 GB
 
 Software:
 - Docker engine: version > 20.10.18
+- Docker-compose: version > 2.39.0
 
 
 #### Aggregated Beacon instance
@@ -238,13 +239,13 @@ Make sure the next list of ports are free of use in your system:
 - 27017 (MongoDB)
 - 5050 (Beacon)
 
-Light up the needed containers from the deploy folder:
+Start the needed containers from the deploy folder:
 
 ```bash
 docker compose up -d --build beaconprod db beacon-ri-tools
 ```
 
-If the containers are built correctly the Beacon API will run in http://localhost:5050/api
+If the containers are built correctly the Beacon API will be available at http://localhost:5050/api
 
 
 ##### Data injection
@@ -354,7 +355,7 @@ CKAN is integrated into the User Portal. Documentation is available at https://g
 
 A test environment instance is deployed at https://catalogue.portal.testing.gdi.lu/.
 
-A staging environment instance is deployed at https://catalogue.portal.dev.gdi.lu/. 
+A staging environment instance is deployed at https://catalogue.portal.staging.gdi.lu/. 
 
 ### LS AAI
 
