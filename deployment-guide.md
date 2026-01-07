@@ -200,7 +200,7 @@ Hardware:
 
 Software:
 - Docker engine: version > 20.10.18
-- Docker-compose: version > v2.35.1
+- Docker-compose: version > v2.20.2
 
 
 #### Aggregated Beacon instance
