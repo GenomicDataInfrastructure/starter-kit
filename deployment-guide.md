@@ -336,7 +336,7 @@ There is available [documentation](https://genomicdatainfrastructure.github.io/g
 
 A test environment instance is deployed at https://portal.testing.gdi.lu/.
 
-A staging environment instance is deployed at https://portal.dev.gdi.lu/.
+A staging environment instance is deployed at https://portal.staging.gdi.lu/.
 
 #### Contact
 LNDS team:
