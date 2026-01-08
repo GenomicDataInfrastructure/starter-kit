@@ -347,7 +347,7 @@ REMS is integrated into the User Portal. Documentation is available at https://g
 
 A test environment instance is deployed at https://daam.portal.testing.gdi.lu/.
 
-A staging environment instance is deployed at https://daam.portal.dev.gdi.lu/.
+A staging environment instance is deployed at https://daam.portal.staging.gdi.lu/.
 
 
 ### Dataset Catalogue (CKAN)
@@ -355,7 +355,7 @@ CKAN is integrated into the User Portal. Documentation is available at https://g
 
 A test environment instance is deployed at https://catalogue.portal.testing.gdi.lu/.
 
-A dev environment instance is deployed at https://catalogue.portal.dev.gdi.lu/. 
+A staging environment instance is deployed at https://catalogue.portal.staging.gdi.lu/. 
 
 ### LS AAI
 
