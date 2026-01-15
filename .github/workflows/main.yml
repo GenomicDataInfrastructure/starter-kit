@@ -12,9 +12,13 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.SYNTHETIC_DATA_REPO_PAT }}
+          persist-credentials: false
       - name: Update submodules to latest configured branches
         run: |
-          git submodule foreach 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
+          git submodule foreach '
+            branch=$(git config -f $toplevel/.gitmodules submodule.$name.branch || echo HEAD)
+            git fetch origin $branch
+          '
           git submodule update --remote
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
