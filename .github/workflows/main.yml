@@ -21,3 +21,4 @@ jobs:
         with:
           default_author: github_actions
           message: Update submodules
+          fetch: false
