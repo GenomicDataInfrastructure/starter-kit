@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.SYNTHETIC_DATA_REPO_PAT }}
       - name: Update submodules to latest configured branches
         run: |
-          git -C submodPath config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+          git submodule foreach 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
           git submodule update --remote
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
