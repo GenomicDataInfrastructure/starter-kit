@@ -22,6 +22,7 @@ jobs:
       - name: Restore push credentials
         run: |
           git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+          git credential-cache exit || true
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
