@@ -16,7 +16,7 @@ jobs:
         run: |
           git submodule foreach '
             branch=$(git config -f $toplevel/.gitmodules submodule.$name.branch || echo HEAD)
-            git fetch origin $branch
+            git -C submodule.$name.path config remote.origin.fetch +refs/heads/*:refs/remotes/origin/$branch
           '
           git submodule update --remote
       - name: Restore push credentials
