@@ -12,7 +12,6 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.SYNTHETIC_DATA_REPO_PAT }}
-          persist-credentials: false
       - name: Update submodules to latest configured branches
         run: |
           git submodule foreach '
@@ -20,6 +19,9 @@ jobs:
             git fetch origin $branch
           '
           git submodule update --remote
+      - name: Restore push credentials
+        run: |
+          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
