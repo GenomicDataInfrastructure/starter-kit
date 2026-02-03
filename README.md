@@ -14,7 +14,7 @@ Overall, the GDI Starter Kit provides the following functionalities: data discov
 
 - [**LifeScience Authentication and Authorisation Infrastructure (LS-AAI) - Authentication and authorization**](https://services.aai.lifescience-ri.eu/): An authentication service implementing the OpenID Connect protocol and providing federated identity and access control.
 
-- [**User Portal - Data discovery and authorization**](https://portal.dev.gdi.lu/): A web application that serves as a data catalogue and allows users to manage their access rights to resources such as research datasets.
+- [**User Portal - Data discovery and authorization**](https://portal.gdi.lu/): A web application that serves as a data catalogue and allows users to manage their access rights to resources such as research datasets.
 
 
 ### Local components
