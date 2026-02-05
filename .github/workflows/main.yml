@@ -3,7 +3,7 @@ name: Update products
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '9 9 * * 4'
+    - cron:  '49 8 * * 4'
 
 jobs:
   update-submodules:
