@@ -149,6 +149,9 @@ There are two default user accounts, that you should change once your FDP become
 Here you can find a way to set up a public instance of FDP using a reverse proxy:
 https://docs.fairdatapoint.org/en/latest/deployment/production-deployment.html.
 
+##### Kubernetes
+There is a repository for shared development of Kubernetes deployment resources for FDP: https://github.com/GenomicDataInfrastructure/FAIR-Data-Point-K8s. 
+
 #### Connection to User Portal
 
 Once you have deployed FDP, please communicate the host URL of your instance with LNDS team.
@@ -290,6 +293,9 @@ If your data collections (e.g., runs, biosamples, etc.) already contain structur
 ```bash
 docker exec beaconprod python -m beacon.connections.mongo.extract_filtering_terms
 ```
+
+##### Kubernetes
+There is a repository for shared development of Kubernetes deployment resources for Beacon Allele Frequency instace: https://github.com/GenomicDataInfrastructure/BEACON-AF-K8s. 
 
 
 #### Customization
