@@ -314,7 +314,7 @@ Follow this steps:
 
 #### References
 
-- [Guidelines](https://docs.google.com/document/d/1nytWC6QOvaLmoJd0OBOENc52gEXagXzI).
+- [GDI Beacon folder](https://drive.google.com/drive/folders/1o-l2o1JWIFwzMSE8UmlHzXUVuSfI4_H1).
 - [Product Documentation](https://beacon-documentation-demo.ega-archive.org/).
 - [Protocol Documentation](https://docs.genomebeacons.org/).
 
