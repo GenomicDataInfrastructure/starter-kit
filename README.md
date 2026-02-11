@@ -52,6 +52,7 @@ The following repositories document how some nodes have deployed these component
 - [Germany Deployment Notes](https://github.com/GenomicDataInfrastructure/starter-kit-de-deployment-notes).
 - [Estonia Deployment Notes](https://gdi.ut.ee/en/technical/deployment-notes/).
 
+Estonian node also developed a standalone, minimalistic node implementation covering FDP and Beacon: https://github.com/GenomicDataInfrastructure/gdi-mini-node.
 
 ## Disclaimer
 For now, these components are intended for development and testing purposes only. They should not be used in production environments as they may contain bugs, security vulnerabilities or other issues that could impact data integrity and confidentiality. For this reasons, only synthetic data should be used with these components. Later steps will be focused on the development of a production-ready solution.
