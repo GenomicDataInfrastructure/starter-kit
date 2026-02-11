@@ -250,12 +250,7 @@ Start the needed containers from the deploy folder:
 docker compose up -d --build beaconprod db beacon-ri-tools
 ```
 
-If the containers are built correctly the Beacon API will be available at http://localhost:5050/api
-
-
-
-
-
+If the containers are built correctly the Beacon API will be available at http://localhost:5050/api.
 
 #### Data injection
 
@@ -283,10 +278,6 @@ dataset_id:
   public:
     default_entry_types_granularity: record
 ```
-
-
-
-
 
 For the API to respond fast to the queries, you have to index your database each time you inject new data::
 
