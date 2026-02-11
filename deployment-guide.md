@@ -206,7 +206,6 @@ Software:
 - Docker-compose: version > v2.20.2
 
 Make sure the next list of ports are free of use in your system:
-
 - 27017 (MongoDB)
 - 5050 (Beacon)
 
