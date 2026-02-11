@@ -187,6 +187,9 @@ For questions or support, please contact:
 
 ### Beacon V2
 
+Two different Beacon instances should be deployed, one for aggregated data and one for subject-level data. Both share 
+most of the steps described below. When that is not the case, it is clarified in the text.
+
 #### Requirements
 
 System and services:
@@ -202,10 +205,15 @@ Software:
 - Docker engine: version > 20.10.18
 - Docker-compose: version > v2.20.2
 
+Make sure the next list of ports are free of use in your system:
 
-#### Aggregated Beacon instance
+- 27017 (MongoDB)
+- 5050 (Beacon)
 
-First, clone the beacon repository. You may do it in two ways:
+
+#### Deployment
+
+First, clone the Beacon repository. You may do it in two ways:
 
 - Clone the original repository and checkout to the stable branch:
 ```bash
@@ -224,20 +232,17 @@ cd beacon-v2
 ```
 
 Edit the config file `ri-tools/conf/conf.py` by changing these variables:
-
 - `datasetId`: this variable has to match the “id” of the dataset you will relate the
 variants to.
-- `case_level_data`: change it to False.
+- `case_level_data`: change it to `False` for aggregated data and `True` for subject level data.
 - `reference_genome`: select your genome of reference between NCBI36, GRCh37 and GRCh38.
 
-Edit the file `ri-tools/pipelines/default/templates/populations.json` and change the variable
+Only for the aggregated Beacon instance, edit the file `ri-tools/pipelines/default/templates/populations.json` and change the variable
 `numberOfPopulations` to the exact number of ancestries/populations you have allele frequencies for in your VCF and map
 how are the allele frequencies, zygosities and name of the population annotated in your VCF for each population.
 
-Make sure the next list of ports are free of use in your system:
-
-- 27017 (MongoDB)
-- 5050 (Beacon)
+Open the config file `beacon/conf/conf.py` and edit the variables that match your Beacon, especially `beacon_id` and 
+`uri` variables, that are the ones that will be read by the Beacon Nework to identify and map your Beacon entry types.
 
 Start the needed containers from the deploy folder:
 
@@ -248,7 +253,11 @@ docker compose up -d --build beaconprod db beacon-ri-tools
 If the containers are built correctly the Beacon API will be available at http://localhost:5050/api
 
 
-##### Data injection
+
+
+
+
+#### Data injection
 
 Copy your VCF files in .gz format inside the folder `ri-tools/files/vcf/files_to_read/`. Then, inject the variant data
 from the VCFs executing the next command (this step may take a few hours to finish, depending on your system resources):
@@ -257,11 +266,13 @@ from the VCFs executing the next command (this step may take a few hours to fini
 docker exec ri-tools python genomicVariations_vcf.py
 ```
 
-Inject the phenotypic data replacing `datasets.json` with the correct path to your file:
+Inject the phenotypic data replacing `individuals.json` (for subject level Beacon) and `datasets.json` with the correct path to your file:
 
 ```bash
 gzip datasets.json
+gzip individuals.json # only for subject level Beacon
 gunzip --stdout datasets.json.gz | docker exec -i mongoprod sh -c 'mongoimport --jsonArray --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" --collection datasets'
+gunzip --stdout individuals.json.gz | docker exec -i mongoprod sh -c 'mongoimport --jsonArray --uri "mongodb://root:example@127.0.0.1:27017/beacon?authSource=admin" --collection individuals' # only for subject level Beacon
 ```
 
 Edit the file `beacon/permissions/datasets/datasets_permissions.yml` adding the dataset id and its permissions. For
@@ -269,9 +280,13 @@ example:
 
 ```yaml
 dataset_id:
-    public:
-        default_entry_types_granularity: record
+  public:
+    default_entry_types_granularity: record
 ```
+
+
+
+
 
 For the API to respond fast to the queries, you have to index your database each time you inject new data::
 
