@@ -4,6 +4,14 @@ This guide provides a set of instructions on how to deploy the GDI Starter Kit
 in a node. It also includes the necessary steps to upload data and connect to
 the central services.
 
+### Index
+[FAIR Data Point](#fair-data-point)  
+[Beacon V2](#beacon-v2)  
+[User Portal](#user-portal)  
+[REMS](#rems)  
+[LS AAI](#ls-aai)  
+[Beacon Network](#beacon-network)
+
 ## Local services deployment
 
 ### Prerequisites
