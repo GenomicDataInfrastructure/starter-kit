@@ -351,11 +351,11 @@ Beacon team at the Centre for Genomic Regulation (CRG), Barcelona, Spain:
 ## Central services
 
 ### User Portal
-There is available [documentation](https://genomicdatainfrastructure.github.io/gdi-userportal-docs/) on what the service does on how it is deployed.
-
-A test environment instance is deployed at https://portal.testing.gdi.lu/.
+There is available [documentation](https://genomicdatainfrastructure.github.io/gdi-userportal-frontend/) on what the service does on how it is deployed.
 
 A staging environment instance is deployed at https://portal.staging.gdi.lu/.
+
+A production environment instance is deployed at https://portal.gdi.lu/.
 
 #### Contact
 LNDS team:
