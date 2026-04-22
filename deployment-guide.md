@@ -99,7 +99,7 @@ services:
       start_period: 30s
 
   fdp-client:
-    image: "fairdata/fairdatapoint-client:${FDP_CLIENT_VERSION:-1.18}"
+    image: "healthri/fdp-client:1.0.4"
     restart: no
     ports:
       - "127.0.0.1:80:80"
