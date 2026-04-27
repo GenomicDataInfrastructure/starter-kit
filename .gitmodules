@@ -40,5 +40,5 @@
 	branch = support/1.18.x
 [submodule "fairdatapoint/client"]
 	path = fairdatapoint/client
-	url = https://github.com/FAIRDataTeam/FAIRDataPoint-client.git
-	branch = support/1.18.x
+	url = https://github.com/Health-RI/FAIRDataPoint-client.git
+	branch = main
